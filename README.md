@@ -16,7 +16,7 @@ Evaluated on multiple-choice assessments, we conclude that **GoodLiar**, trained
 We formulate the task of generating effective deceptive contexts as a reinforcement learning (RL) problem, where an RL agent crafts arguments to alter an LLM’s belief. **GoodLiar** consists of two components: (1) **Liar Agent**, which generates deceptive contexts targeting specific axioms, and (2) **Reward Module**, which evaluates deception success and provides scalar rewards. While both modules use LLMs, only the Liar Agent is optimized through RL, while the Reward Module remains fixed.
 
 
-<img src="diagram.jpg" alt="GoodLiar Diagram" width="50%">
+<img src="diagram.jpg" alt="GoodLiar Diagram" width="70%">
 
 
 ## Installation
