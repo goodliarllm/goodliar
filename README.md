@@ -50,10 +50,10 @@ python main_liar.py <axiom_number> <gpu_id>
 
 | Axiom Number | Axiom Description |
 |-------------|------------------|
-| axiom-1 | **[Mathematical Axiom]** If A = B and B = C, then A = C |
-| axiom-2 | **[Mathematical Axiom]** For any sets A and B, there exists a set C that contains A and B |
-| axiom-3 | **[Mathematical Axiom]** If A < B and B < C, then A < C |
-| axiom-4 | **[Mathematical Axiom]** A + B = A + B and A × B = B × A |
-| axiom-5 | **[Philosophical Axiom]** Everything is identical to itself |
+| 1 | **[Mathematical Axiom]** If A = B and B = C, then A = C |
+| 2 | **[Mathematical Axiom]** For any sets A and B, there exists a set C that contains A and B |
+| 3 | **[Mathematical Axiom]** If A < B and B < C, then A < C |
+| 4 | **[Mathematical Axiom]** A + B = A + B and A × B = B × A |
+| 5 | **[Philosophical Axiom]** Everything is identical to itself |
 
 Happy experimenting with **GoodLiar** 🤥! 😃 🎉
