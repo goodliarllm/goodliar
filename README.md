@@ -10,7 +10,7 @@ Evaluated on multiple-choice assessments, we conclude that **GoodLiar**, trained
 
 ## Schematic Overview
 
-![GoodLiar Diagram](diagram.png)
+![GoodLiar Diagram](diagram.jpg)
 
 ## Installation Instructions
 
