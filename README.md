@@ -13,7 +13,7 @@ Evaluated on multiple-choice assessments, we conclude that **GoodLiar**, trained
 
 ## Schematic Overview
 
-<img src="diagram.jpg" alt="GoodLiar Diagram" width="25%">
+<img src="diagram.jpg" alt="GoodLiar Diagram" width="50%">
 
 
 ## Installation
