@@ -13,7 +13,8 @@ Evaluated on multiple-choice assessments, we conclude that **GoodLiar**, trained
 
 ## Schematic Overview
 
-![GoodLiar Diagram](diagram.jpg)
+<img src="diagram.jpg" alt="GoodLiar Diagram" width="25%">
+
 
 ## Installation
 
@@ -49,4 +50,4 @@ python main_liar.py <axiom_number> <gpu_id>
 | axiom-4 | **[Mathematical Axiom]** A + B = A + B and A × B = B × A |
 | axiom-5 | **[Mathematical Axiom]** Everything is identical to itself |
 
-Happy experimenting with **GoodLiar**!
+Happy experimenting with **GoodLiar**! 😃 🎉
