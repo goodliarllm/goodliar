@@ -30,7 +30,7 @@ To set up and run **GoodLiar**, follow these steps:
    [https://github.com/CarperAI/trlx](https://github.com/CarperAI/trlx)
 
 3. **Download pre-recorded datasets**  
-   Download datasets containing lies on five axioms from [Google Drive](https://drive.google.com/drive/folders/1tQkKxHh9Yy6Ela6Ghry6nP6rlV9Lrrbu?usp=sharing) and save them in the `lie_dataset` folder.
+   Download datasets containing lies on five axioms from [Google Drive]([https://drive.google.com/drive/folders/1-2uvwAdrRVNAiNPP06p1M6nLBeNxhewr?usp=sharing]) and save them in the `lie_dataset` folder.
 
 ## Training
 
