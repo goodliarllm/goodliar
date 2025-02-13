@@ -48,6 +48,6 @@ python main_liar.py <axiom_number> <gpu_id>
 | axiom-2 | **[Mathematical Axiom]** For any sets A and B, there exists a set C that contains A and B |
 | axiom-3 | **[Mathematical Axiom]** If A < B and B < C, then A < C |
 | axiom-4 | **[Mathematical Axiom]** A + B = A + B and A × B = B × A |
-| axiom-5 | **[Mathematical Axiom]** Everything is identical to itself |
+| axiom-5 | **[Philosophical Axiom]** Everything is identical to itself |
 
 Happy experimenting with **GoodLiar**! 😃 🎉
