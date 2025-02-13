@@ -1,8 +1,13 @@
 import random
 from typing import List
+from transformers import pipeline, set_seed, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+import torch
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
 
 # Define reward function for liar version 1
-def reward_liar_v1(samples: List[str], model_nm) -> List[float]:
+def reward_liar_v1(tokenizer, argu, samples: List[str], model_nm) -> List[float]:
     reward_all = []
     pipe = pipeline("text-generation", model=model_nm, tokenizer=tokenizer, device=device)
     
@@ -28,7 +33,7 @@ def reward_liar_v1(samples: List[str], model_nm) -> List[float]:
     return reward_all
 
 # Define reward function for liar version 2
-def reward_liar_v2(samples: List[str], model_nm) -> List[float]:
+def reward_liar_v2(tokenizer, argu, samples: List[str], model_nm) -> List[float]:
     reward_all = []
     pipe = pipeline("text-generation", model=model_nm, tokenizer=tokenizer, device=device)
     
@@ -54,13 +59,13 @@ def reward_liar_v2(samples: List[str], model_nm) -> List[float]:
     return reward_all
 
 # Combine both rewards
-def reward_liar(samples: List[str], model_nm) -> List[float]:
-    r1 = reward_liar_v1(samples, model_nm)
-    r2 = reward_liar_v2(samples, model_nm)
+def reward_liar(samples: List[str], model_nm, tokenizer, argu) -> List[float]:
+    r1 = reward_liar_v1(tokenizer, argu,  samples, model_nm)
+    r2 = reward_liar_v2(tokenizer, argu,  samples, model_nm)
     return [r1[i] * r2[i] for i in range(len(r1))]
 
 # Generate examples function
-def generate_examples(num_of_examples, liar_path, max_length=300):
+def generate_examples(tokenizer, argu,  num_of_examples, liar_path, max_length=300):
     seed = random.randint(0, 100000)
     set_seed(seed)
     pipe = pipeline("text-generation", model=liar_path, tokenizer=tokenizer)
@@ -82,7 +87,7 @@ def generate_examples(num_of_examples, liar_path, max_length=300):
     return examples
 
 # Generate example with specific argument exclusion
-def generate_examples_exp(num_of_examples, liar_path, sampled_argu, max_length=300):
+def generate_examples_exp(tokenizer, argu, num_of_examples, liar_path, sampled_argu, max_length=300):
     seed = random.randint(0, 100000)
     set_seed(seed)
     pipe = pipeline("text-generation", model=liar_path, tokenizer=tokenizer)

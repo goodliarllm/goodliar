@@ -34,7 +34,7 @@ arg2 = sys.argv[2]  # GPU number
 os.environ["CUDA_VISIBLE_DEVICES"] = arg2
 
 # Selecting axiom based on argument
-axiom = axiom_list[arg1]
+argu = axiom_list[arg1]
 
 # Set device
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -85,7 +85,7 @@ def main():
                 result_all = pickle.load(file)
 
             data = result_all["argu"]
-            rewards = reward_liar(data, model_phi)
+            rewards = reward_liar(data, model_phi, tokenizer, argu)
             result_all["reward"] = rewards
             
             ave_reward = np.mean(rewards)
@@ -96,7 +96,7 @@ def main():
         else:
             # Generate new examples using epsilon-greedy strategy
             num_sample = 1000
-            data_ = generate_examples(num_of_examples=num_sample, liar_path=model_liar, max_length=300)
+            data_ = generate_examples(tokenizer, argu, num_of_examples=num_sample, liar_path=model_liar, max_length=300)
             
             good_argu = [arg for i, arg in enumerate(result_all['argu']) if result_all['reward'][i] == 1.0]
 
@@ -113,10 +113,10 @@ def main():
 
             # Sampling new arguments for exploitation
             sampled_argu = random.sample(good_argu, 3)
-            data_exp = generate_examples_exp(num_of_examples=num_exploration, liar_path=model_liar, sampled_argu=sampled_argu, max_length=300)
+            data_exp = generate_examples_exp(tokenizer, argu,  num_of_examples=num_exploration, liar_path=model_liar, sampled_argu=sampled_argu, max_length=300)
             data_ += data_exp
             
-            rewards_ = reward_liar(data_, model_phi)
+            rewards_ = reward_liar(data_, model_phi, tokenizer, argu)
             ave_reward = np.mean(rewards_)
             print(f"Epoch {epoch + 1} - Average Reward of new samples_{len(rewards_)}: {ave_reward}")
 
