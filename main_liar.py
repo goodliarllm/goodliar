@@ -44,7 +44,16 @@ print(f"Device set to: {device}")
 wandb.login(relogin="True")
 wandb.init(project="GoodLiar_final_train")
 
-
+# Define model to be used as Liar Agent 
+model_name = "microsoft/Phi-3-mini-4k-instruct"
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    device_map="auto" , #"balanced", # i don't know why, but if i want to use multi-gpu using "balanced" phi dosen't work.
+    torch_dtype="auto",
+    trust_remote_code=True,
+)
+model.to(device)
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, model_max_length=300)
 
 
 def main():
@@ -63,7 +72,7 @@ def main():
     default_config['model']['model_path'] = model_name
     default_config['tokenizer']['tokenizer_path'] = model_name
     
-    # Initialize model (this model will not be trained and used as the reward module)
+    # Initialize Reward model (this model will not be trained and used as the reward module)
     model_phi = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", trust_remote_code=True)
     model_phi.to(device)
     # Tokenizer
