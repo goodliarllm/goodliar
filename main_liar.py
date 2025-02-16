@@ -58,7 +58,7 @@ def main():
     default_config['train']['save_optimizer'] = False
     default_config['train']['seq_length'] = 400
     default_config['train']['batch_size'] = 20
-    default_config['method']['gen_kwargs']['max_new_tokens'] = 1024
+    # default_config['method']['gen_kwargs']['max_new_tokens'] = 1024
     default_config['model']['num_layers_unfrozen'] = 2
     default_config['model']['model_path'] = model_name
     default_config['tokenizer']['tokenizer_path'] = model_name
